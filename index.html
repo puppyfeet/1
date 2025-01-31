@@ -30,7 +30,7 @@
                 <button class="keypad-button" data-value="9">9</button>
             </div>
             <div class="keypad-row">
-                <button class="keypad-button" data-value="C">C</button>
+                <button class="keypad-button clear">C</button>
                 <button class="keypad-button" data-value="0">0</button>
                 <button class="keypad-button" data-value=".">.</button> <!-- Decimal point button -->
             </div>
@@ -77,5 +77,13 @@
     </div>
 
     <script src="app.js"></script>
+    <script>
+        // Set today's date as default
+        document.getElementById('dateInput').value = new Date().toISOString().split('T')[0];
+
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js');
+        }
+    </script>
 </body>
 </html>

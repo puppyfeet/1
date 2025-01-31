@@ -19,10 +19,6 @@ input, select {
     width: 100%; /* Full width for inputs */
 }
 
-.button {
-    padding: 10px 15px;
-}
-
 .keypad {
     margin-top: 10px;
 }

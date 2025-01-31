@@ -118,11 +118,5 @@ function deleteRecord(index) {
    displaySavedValues();
 }
 
-// Function to delete all records
-document.getElementById('deleteAllButton').addEventListener('click', function() {
-    localStorage.removeItem('savedValues'); // Remove all records from local storage
-    displaySavedValues(); // Refresh displayed values
-});
-
 // Display saved values on load
 displaySavedValues();

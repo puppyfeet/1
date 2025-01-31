@@ -72,6 +72,16 @@ th {
 
 /* Responsive Styles */
 @media (max-width: 600px) {
+    body {
+        padding: 10px; /* Add padding to body for mobile */
+    }
+
+    .container {
+        padding-top: 10px; /* Reduce padding-top for container on mobile */
+        padding-left: 10px; /* Add padding-left for container on mobile */
+        padding-right: 10px; /* Add padding-right for container on mobile */
+    }
+
     input, select {
         width: 100%; /* Ensure inputs take full width on small screens */
         font-size: 16px; /* Increase font size for better readability */

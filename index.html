@@ -1,85 +1,89 @@
-body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f4f4f4;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker PWA</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <div class="container">
+        <h1>Expense Tracker</h1>
+        <input type="tel" id="expenseInput" placeholder="Expense Amount" required readonly pattern="[0-9]*">
+        
+        <!-- Numeric Keypad -->
+        <div id="keypad">
+            <div class="keypad-row">
+                <button class="keypad-button" data-value="1">1</button>
+                <button class="keypad-button" data-value="2">2</button>
+                <button class="keypad-button" data-value="3">3</button>
+            </div>
+            <div class="keypad-row">
+                <button class="keypad-button" data-value="4">4</button>
+                <button class="keypad-button" data-value="5">5</button>
+                <button class="keypad-button" data-value="6">6</button>
+            </div>
+            <div class="keypad-row">
+                <button class="keypad-button" data-value="7">7</button>
+                <button class="keypad-button" data-value="8">8</button>
+                <button class="keypad-button" data-value="9">9</button>
+            </div>
+            <div class="keypad-row">
+                <button class="keypad-button clear">C</button>
+                <button class="keypad-button" data-value="0">0</button>
+                <button class="keypad-button" data-value=".">.</button> <!-- Decimal point button -->
+            </div>
+        </div>
 
-.container {
-    text-align: center;
-    width: 90%; /* Limit width for mobile */
-    max-width: 400px; /* Maximum width for larger screens */
-    padding-top: 20px; /* Add padding to the top */
-}
+        <input type="text" id="descriptionInput" placeholder="Description" required>
+        <input type="date" id="dateInput" required>
 
-h1 {
-    font-size: 24px; /* Adjust title size for mobile */
-    margin-bottom: 10px; /* Space below title */
-}
+        <div class="category-buttons">
+            <button id="lunchButton">Lunch</button>
+            <button id="dinnerButton">Dinner</button>
+            <input type="text" id="categoryInput" placeholder="Category (optional)">
+        </div>
 
-input, select {
-    padding: 10px;
-    margin: 10px 0;
-    width: 100%; /* Full width for inputs */
-}
+        <div class="mode-buttons">
+            <button id="cashButton">Cash</button>
+            <button id="bank1Button">Bank1</button>
+            <button id="bank2Button">Bank2</button>
+            <button id="bank3Button">Bank3</button>
+            <input type="text" id="customModeInput" placeholder="Custom Mode (optional)">
+        </div>
 
-.keypad {
-    margin-top: 10px;
-}
+        <input type="text" id="remarksInput" placeholder="Remarks">
+        <button id="saveButton">Save</button>
 
-.keypad-row {
-    display: flex;
-    justify-content: space-between; /* Space buttons evenly */
-}
+        <!-- Total expenses for the current month -->
+        <h2 id="totalExpensesHeader">Total Expenses: $0.00</h2>
 
-.keypad-button {
-    padding: 15px;
-    margin: 5px;
-    font-size: 20px;
-    flex-grow: 1; /* Make buttons grow to fill space */
-}
+        <!-- Table for displaying saved values -->
+        <table id="savedValuesTable">
+            <thead>
+                <tr>
+                    <th>Expense</th>
+                    <th>Description</th>
+                    <th>Date</th>
+                    <th>Category</th>
+                    <th>Mode</th>
+                    <th>Remarks</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="savedValues"></tbody>
+        </table>
+    </div>
 
-.category-buttons, .mode-buttons {
-    display: flex;
-    flex-direction: column; /* Stack buttons vertically */
-}
+    <script src="app.js"></script>
+    <script>
+        // Set today's date as default
+        document.getElementById('dateInput').value = new Date().toISOString().split('T')[0];
 
-.category-buttons button,
-.mode-buttons button {
-    margin-bottom: 5px; /* Space between buttons */
-}
-
-table {
-    width: 100%; /* Full width for table */
-    margin-top: 20px;
-    border-collapse: collapse;
-}
-
-table, th, td {
-    border: 1px solid #ddd;
-}
-
-th, td {
-    padding: 8px;
-    text-align: left;
-}
-
-th {
-    background-color: #f2f2f2;
-}
-
-/* Responsive Styles */
-@media (max-width: 600px) {
-    input, select {
-        width: 100%; /* Ensure inputs take full width on small screens */
-        font-size: 16px; /* Increase font size for better readability */
-    }
-
-    .keypad-button {
-        padding: 20px; /* Increase button size for touch targets */
-        font-size: 24px; /* Increase font size on buttons */
-        min-width: 50px; /* Set a minimum width for buttons */
-    }
-}
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js');
+        }
+    </script>
+</body>
+</html>

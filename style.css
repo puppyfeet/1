@@ -11,6 +11,12 @@ body {
     text-align: center;
     width: 90%; /* Limit width for mobile */
     max-width: 400px; /* Maximum width for larger screens */
+    padding-top: 20px; /* Add padding to the top */
+}
+
+h1 {
+    font-size: 24px; /* Adjust title size for mobile */
+    margin-bottom: 10px; /* Space below title */
 }
 
 input, select {

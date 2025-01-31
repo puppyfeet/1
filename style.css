@@ -1,0 +1,74 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.container {
+    text-align: center;
+}
+
+input, select {
+    padding: 10px;
+    margin: 10px 0;
+    width: 80%;
+}
+
+.button {
+    padding: 10px 15px;
+}
+
+.keypad {
+    margin-top: 10px;
+}
+
+.keypad-row {
+    display: flex;
+    justify-content: center;
+}
+
+.keypad-button {
+    padding: 15px;
+    margin: 5px;
+    font-size: 20px;
+}
+
+.category-buttons, .mode-buttons {
+    display: flex;
+    justify-content: center;
+}
+
+table {
+    width: 90%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+    input, select {
+        width: 90%; /* Adjust input width for smaller screens */
+        font-size: 16px; /* Increase font size for better readability */
+    }
+
+    .keypad-button {
+        padding: 20px; /* Increase button size for touch targets */
+        font-size: 24px; /* Increase font size on buttons */
+    }
+}

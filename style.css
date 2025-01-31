@@ -37,7 +37,12 @@ input, select {
 
 .category-buttons, .mode-buttons {
     display: flex;
-    justify-content: space-between; /* Space buttons evenly */
+    flex-direction: column; /* Stack buttons vertically */
+}
+
+.category-buttons button,
+.mode-buttons button {
+    margin-bottom: 5px; /* Space between buttons */
 }
 
 table {
